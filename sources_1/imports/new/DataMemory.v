@@ -27,12 +27,13 @@ module DataMemory(
         end
     end
     
-    assign RD = DATA_MEM[{2'b00, A[31:2]}];
+    wire [31:0] RDW;
+    assign RDW = DATA_MEM[{2'b00, A[31:2]}];
+    assign RD = RDW[4*A[1:0]+3-:4];
     
     always @(posedge CLK) begin
         if (WE) begin
             DATA_MEM[{2'b00, A[31:2]}] <= WD;
         end
     end
-    
 endmodule

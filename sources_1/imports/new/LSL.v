@@ -12,7 +12,7 @@
 
 module LSL(
     input   [31:0]      ShIn,
-    input   [4:0]       Shamt5,
+    input   [4:0]       Shamt,
     output  [31:0]      ShOutLSL
     );
     
@@ -21,9 +21,9 @@ module LSL(
     wire [31:0] ShOutC;
     wire [31:0] ShOutD;
     
-    assign  ShOutA      =   Shamt5[4] ? {ShIn[15:0], 16'b0} : ShIn;
-    assign  ShOutB      =   Shamt5[3] ? {ShOutA[23:0], 8'b0} : ShOutA;
-    assign  ShOutC      =   Shamt5[2] ? {ShOutB[27:0], 4'b0} : ShOutB;
-    assign  ShOutD      =   Shamt5[1] ? {ShOutC[29:0], 2'b0} : ShOutC;
-    assign  ShOutLSL    =   Shamt5[0] ? {ShOutD[30:0], 1'b0} : ShOutD;
+    assign  ShOutA      =   Shamt[4] ? {ShIn[15:0], 16'b0} : ShIn;
+    assign  ShOutB      =   Shamt[3] ? {ShOutA[23:0], 8'b0} : ShOutA;
+    assign  ShOutC      =   Shamt[2] ? {ShOutB[27:0], 4'b0} : ShOutB;
+    assign  ShOutD      =   Shamt[1] ? {ShOutC[29:0], 2'b0} : ShOutC;
+    assign  ShOutLSL    =   Shamt[0] ? {ShOutD[30:0], 1'b0} : ShOutD;
 endmodule

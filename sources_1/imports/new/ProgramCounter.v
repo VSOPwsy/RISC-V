@@ -16,8 +16,7 @@ module ProgramCounter(
     input PCSrc,
     input [31:0] Result,
     output reg [31:0] PC,
-    output [31:0] PC_Plus_4,
-    output [31:0] PC_Plus_8
+    output [31:0] PC_Plus_4
     );
     
     reg [31:0] current_PC;
@@ -43,5 +42,4 @@ module ProgramCounter(
         PC = current_PC;
     
     assign PC_Plus_4 = current_PC + 32'd4;
-    assign PC_Plus_8 = PC_Plus_4 + 32'd4;
 endmodule
